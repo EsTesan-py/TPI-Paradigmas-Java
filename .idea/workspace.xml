@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="80880121-69c7-4022-a9ea-7a3e261a9404" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TPI Paradigmas.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Cliente.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Defectos.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Empleado.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Estado.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Marca.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Medicion.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Modelo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Oblea.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Pago.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Persona.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Revision.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Rol.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Tarifa.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/TipoVehiculo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Turno.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Vehiculo.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="PATH_TO_GIT" value="C:\Program Files\Git\bin\git.exe" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 0
+}]]></component>
+  <component name="ProjectId" id="2pDJTSTg7bwPe1Jy2kua4Gxvjts" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "onboarding.tips.debug.path": "C:/Users/Public/Downloads/TPI Paradigmas/src/Main.java",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "project.propVCSSupport.CommitDialog"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="80880121-69c7-4022-a9ea-7a3e261a9404" name="Changes" comment="" />
+      <created>1732294727880</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1732294727880</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Main.java</url>
+          <line>3</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
