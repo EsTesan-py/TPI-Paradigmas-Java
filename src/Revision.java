@@ -9,6 +9,7 @@ public class Revision {
     private final Medicion resultadoMedicion;
     private final Estado estado;
 
+
     public Revision(int idRevision, String fechaAlta, String fechaVencimiento, Vehiculo vehiculo,
                     Oblea oblea, Empleado empleado, Defectos defectosVisuales, Medicion resultadoMedicion, Estado estado) {
         this.idRevision = idRevision;
@@ -22,6 +23,7 @@ public class Revision {
         this.estado = estado;
     }
 
+
     public void mostrar() {
         System.out.println("Revisión #" + idRevision);
         System.out.println("Fecha de Alta: " + fechaAlta);
@@ -32,4 +34,28 @@ public class Revision {
         System.out.println("Oblea asignada correctamente.");
     }
 
+
+    public Vehiculo conocerVehiculo() {
+        return vehiculo;
+    }
+
+
+    public Oblea conocerOblea() {
+        return oblea;
+    }
+
+
+    public Empleado conocerEmpleado() {
+        return empleado;
+    }
+
+
+    public Estado conocerEstado() {
+        return estado;
+    }
+
+
+    public Medicion conocerResultadoMedicion() {
+        return resultadoMedicion;
+    }
 }
