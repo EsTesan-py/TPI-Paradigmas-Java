@@ -7,6 +7,7 @@ public class Persona {
     private final String fechaNacimiento;
     private final String direccion;
 
+
     public Persona(String nombre, String apellido, String dni, String nroTelefono, String correoElectronico, String fechaNacimiento, String direccion) {
         this.nombre = nombre;
         this.apellido = apellido;
@@ -16,6 +17,17 @@ public class Persona {
         this.fechaNacimiento = fechaNacimiento;
         this.direccion = direccion;
     }
+
+
+    public String getNombre() {
+        return nombre;
+    }
+
+
+    public String getApellido() {
+        return apellido;
+    }
+
 
     public void mostrar() {
         System.out.println("Persona:");

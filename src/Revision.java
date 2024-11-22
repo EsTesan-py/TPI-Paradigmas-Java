@@ -5,23 +5,35 @@ public class Revision {
     private final Vehiculo vehiculo;
     private Oblea oblea;
     private final Empleado empleado;
-    private final Defectos defectosVisuales;
-    private final Medicion resultadoMedicion;
+    private Defectos defectosVisuales;
+    private Medicion resultadoMedicion;
     private final Estado estado;
 
 
-    public Revision(int idRevision, String fechaAlta, String fechaVencimiento, Vehiculo vehiculo,
-                    Oblea oblea, Empleado empleado, Defectos defectosVisuales, Medicion resultadoMedicion, Estado estado) {
+
+
+    public Revision(int idRevision, String fechaAlta, String fechaVencimiento, Vehiculo vehiculo, Empleado empleado, Defectos defectosVisuales, Medicion resultadoMedicion, Estado estado) {
         this.idRevision = idRevision;
         this.fechaAlta = fechaAlta;
         this.fechaVencimiento = fechaVencimiento;
         this.vehiculo = vehiculo;
-        this.oblea = oblea;
         this.empleado = empleado;
         this.defectosVisuales = defectosVisuales;
         this.resultadoMedicion = resultadoMedicion;
         this.estado = estado;
     }
+
+
+    public Revision(int idRevision, String fechaAlta, String fechaVencimiento, Vehiculo vehiculo, Empleado empleado, Estado estado) {
+        this.idRevision = idRevision;
+        this.fechaAlta = fechaAlta;
+        this.fechaVencimiento = fechaVencimiento;
+        this.vehiculo = vehiculo;
+        this.empleado = empleado;
+        this.estado = estado;
+    }
+
+
 
 
     public void mostrar() {
@@ -45,9 +57,13 @@ public class Revision {
     }
 
 
+
+
     public Empleado conocerEmpleado() {
         return empleado;
     }
+
+
 
 
     public Estado conocerEstado() {
@@ -55,7 +71,25 @@ public class Revision {
     }
 
 
+
+
     public Medicion conocerResultadoMedicion() {
         return resultadoMedicion;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Revision{" +
+                "idRevision=" + idRevision +
+                ", fechaAlta='" + fechaAlta + '\'' +
+                ", fechaVencimiento='" + fechaVencimiento + '\'' +
+                ", vehiculo=" + vehiculo +
+                ", oblea=" + oblea +
+                ", empleado=" + empleado +
+                ", defectosVisuales=" + defectosVisuales +
+                ", resultadoMedicion=" + resultadoMedicion +
+                ", estado=" + estado +
+                '}';
     }
 }

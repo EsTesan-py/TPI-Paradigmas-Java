@@ -12,4 +12,12 @@ public class Rol {
         System.out.println("  Tipo de Rol: " + tipoRol);
         System.out.println("  Función: " + funcion);
     }
+
+    @Override
+    public String toString() {
+        return "Rol{" +
+                "tipoRol='" + tipoRol + '\'' +
+                ", funcion='" + funcion + '\'' +
+                '}';
+    }
 }

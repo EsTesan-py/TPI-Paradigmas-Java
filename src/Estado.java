@@ -8,4 +8,11 @@ public class Estado {
     public String getTipo() {
         return tipo;
     }
+
+    @Override
+    public String toString() {
+        return "Estado{" +
+                "tipo='" + tipo + '\'' +
+                '}';
+    }
 }

@@ -1,21 +1,31 @@
-public class Empleado {
+public class Empleado extends Persona{
     private final Rol rol;
-    private final String rolEmpleado;
 
-    public Empleado(Rol rol, String rolEmpleado) {
+
+
+
+    public Empleado(String nombre, String apellido, String dni, String nroTelefono, String correoElectronico, String fechaNacimiento, String direccion, Rol rol) {
+        super(nombre, apellido, dni, nroTelefono, correoElectronico, fechaNacimiento, direccion);
         this.rol = rol;
-        this.rolEmpleado = rolEmpleado;
     }
+
 
     public void mostrar() {
         System.out.println("Empleado:");
-        System.out.println("  Rol del Empleado: " + rolEmpleado);
         if (rol != null) {
             rol.mostrar();
         }
     }
 
+
     public Rol conocerRol() {
         return rol;
+    }
+
+    @Override
+    public String toString() {
+        return "Empleado{" +
+                "rol=" + rol +
+                '}';
     }
 }

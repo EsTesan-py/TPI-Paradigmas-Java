@@ -23,5 +23,7 @@ public class Oblea {
         System.out.println("  Estado: " + (estado != null ? estado.getTipo() : "No asignado"));
         System.out.println("  Stock: " + stock);
         System.out.println("  Fecha de Alta: " + fechaDeAlta);
+
+
     }
 }

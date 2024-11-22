@@ -1,34 +1,119 @@
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.Scanner;
+
+
 public class Main {
     public static void main(String[] args) {
-        // Aca creo los objetos para probar
-        Estado estadoAprobado = new Estado("Aprobado");
-        Estado estadoPendiente = new Estado("En espera");
-        // Aca instancio los objetos del tipo de vehiculo
-        TipoVehiculo tipoAuto = new TipoVehiculo(1200, 4, "Automóvil");
-        TipoVehiculo tipoMoto = new TipoVehiculo(300, 2, "Motocicleta");
-        // Aca instancio los objetos vehiculo con sus datos
-        Vehiculo vehiculo1 = new Vehiculo(tipoAuto, "12345", "67890", "Rojo", 50000, new Marca("Toyota", new Modelo("Corolla")));
-        Vehiculo vehiculo2 = new Vehiculo(tipoMoto, "54321", "09876", "Negro", 10000, new Marca("Honda", new Modelo("CBR500R")));
-        // Instanciamos la Oblea
-        Oblea oblea1 = new Oblea(1, "2025-01-01", vehiculo1, estadoAprobado, 10, "2024-01-01");
-        //Instanciamos los defectos visuales que puede llegar a tener
-        Defectos defectos1 = new Defectos("Faros delanteros dañados", "Los faros están rotos.");
-        Defectos defectos2 = new Defectos("Frenos desgastados", "Los frenos tienen desgaste avanzado.");
-        // Instanciamos las mediciones
-        Medicion medicion1 = new Medicion("Emisiones de gases", 0.08);
-        Medicion medicion2 = new Medicion("Frenado", 2.5);
-        //Creamos la revision entera con sus datos
-        Revision revision1 = new Revision(1, "2024-11-22", "2025-11-22", vehiculo1, oblea1, null, defectos1, medicion1, estadoAprobado);
-        Revision revision2 = new Revision(2, "2024-11-22", "2025-11-22", vehiculo2, null, null, defectos2, medicion2, estadoPendiente);
+        ArrayList<Cliente> clientes = new ArrayList<>();
+        Scanner scanner = new Scanner(System.in);
 
-        // Asignar oblea
-        revision2.asignarOblea(oblea1);
 
-        // Mostrar datos de una revisión, la numero uno
-        System.out.println("=== Revisión 1 ===");
-        revision1.mostrar();
-        // Mostrar datos de la segunda revision
-        System.out.println("\n=== Revisión 2 ===");
-        revision2.mostrar();
+        Vehiculo vehiculoEjemplo = new Vehiculo(new TipoVehiculo(222,2, "Auto"), "Azul", "123", "Azul", 120, new Marca("Nissan", new Modelo("Tiida")), "ABC123");
+
+
+        Cliente clienteEjemplo = new Cliente(
+                "Juan",
+                "Perez",
+                "12345678",
+                "1155667788",
+                "juan.perez@email.com",
+                "1990-05-20",
+                "Calle Falsa 123",
+                vehiculoEjemplo
+        );
+
+
+        Empleado empleado = new Empleado(
+                "Juanfer",
+                "Quintero",
+                "12345679",
+                "1155667789",
+                "juanfer.quintero@email.com",
+                "1990-05-20",
+                "Calle Falsa 1234",
+                new Rol("Encargado de Cobro", "Registrar datos para inspeccion")
+        );
+
+
+        clientes.add(clienteEjemplo);
+
+
+        // Caso de uso registrar inspección técnica
+
+
+        // Usuario ingrese nombre y apellido
+        System.out.println("(Para el ejemplo del caso de uso ingrese Juan el nombre y Perez en el apellido)");
+        System.out.println("Ingrese el nombre del usuario");
+        String nombre = scanner.nextLine();
+        System.out.println("Ingrese el apellido del usuario");
+
+
+        String apellido = scanner.nextLine();
+
+
+        Cliente usuario = null;
+
+
+        // Buscamos el cliente que tenga ese nombre y apellido
+        for (Cliente cliente : clientes){
+            if(cliente.getNombre().equals(nombre) && cliente.getApellido().equals(apellido)){
+                usuario = cliente;
+            }
+        }
+
+
+        if (usuario == null) {
+            System.out.println("Usuario no encontrado");
+            return;
+        }
+
+
+        // El cliente ingrese la matricula de su vehiculo
+        System.out.println("(Para el ejemplo del caso de uso ingrese ABC123 en la matricula)");
+        System.out.println("Ingrese el numero de matricula");
+        String matricula = scanner.nextLine();
+
+
+        Vehiculo vehiculoUsuario = null;
+
+
+        // Verificamos que la matricula ingresada sea la de ese cliente
+        if(usuario.conocerVehiculo().getMatricula().equals(matricula)){
+            vehiculoUsuario = usuario.conocerVehiculo();
+        }
+        if(vehiculoUsuario == null){
+            System.out.println("Vehiculo no coincide");
+            return;
+        }
+
+
+        // Si la matricula ingresada es la del vehiculo del usuario preguntamos si almacemamos los datos de inspeccion
+        System.out.println("Presione 1 para Almacenar datos inspección");
+        int opcion = scanner.nextInt();
+
+
+        if (opcion != 1){
+            return;
+        }
+
+
+        LocalDate fechaActual = LocalDate.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        String fechaActualFormateada = fechaActual.format(formatter);
+        String fechaVencimiento = fechaActual.plusDays(10).format(formatter);
+
+
+        Revision revision = new Revision(0,fechaActualFormateada, fechaVencimiento, vehiculoUsuario,  empleado, new Estado("Pendiente"));
+
+
+        // Mostramos la revision creada
+        System.out.println("Revision iniciada: " + revision);
     }
 }
+
+
