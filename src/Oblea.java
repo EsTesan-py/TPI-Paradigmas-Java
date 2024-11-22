@@ -1,10 +1,10 @@
 public class Oblea {
-    private int nroDeOblea;
-    private String fechaDeVencimiento;
-    private Vehiculo vehiculo;
-    private Estado estado;
-    private int stock;
-    private String fechaDeAlta;
+    private final int nroDeOblea;
+    private final String fechaDeVencimiento;
+    private final Vehiculo vehiculo;
+    private final Estado estado;
+    private final int stock;
+    private final String fechaDeAlta;
 
     public Oblea(int nroDeOblea, String fechaDeVencimiento, Vehiculo vehiculo, Estado estado, int stock, String fechaDeAlta) {
         this.nroDeOblea = nroDeOblea;

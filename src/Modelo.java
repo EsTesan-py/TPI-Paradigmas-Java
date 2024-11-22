@@ -1,5 +1,5 @@
 public class Modelo {
-    private String nombre;
+    private final String nombre;
 
     public Modelo(String nombre) {
         this.nombre = nombre;

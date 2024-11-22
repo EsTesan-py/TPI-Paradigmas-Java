@@ -1,6 +1,6 @@
 public class Turno {
-    private String fechaTurno;
-    private String horaTurno;
+    private final String fechaTurno;
+    private final String horaTurno;
 
     public Turno(String fechaTurno, String horaTurno) {
         this.fechaTurno = fechaTurno;

@@ -1,6 +1,6 @@
 public class Defectos {
-    private String defectosVisuales;
-    private String descripcion;
+    private final String defectosVisuales;
+    private final String descripcion;
 
     public Defectos(String defectosVisuales, String descripcion) {
         this.defectosVisuales = defectosVisuales;

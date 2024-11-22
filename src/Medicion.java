@@ -1,6 +1,6 @@
 public class Medicion {
-    private String tipoMedicion;
-    private double valorMedicion;
+    private final String tipoMedicion;
+    private final double valorMedicion;
 
     public Medicion(String tipoMedicion, double valorMedicion) {
         this.tipoMedicion = tipoMedicion;

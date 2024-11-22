@@ -1,7 +1,7 @@
 public class TipoVehiculo {
-    private double peso;
-    private int eje;
-    private String categoria;
+    private final double peso;
+    private final int eje;
+    private final String categoria;
 
     public TipoVehiculo(double peso, int eje, String categoria) {
         this.peso = peso;

@@ -1,5 +1,5 @@
 public class Tarifa {
-    private double precioxPeso;
+    private final double precioxPeso;
 
     public Tarifa(double precioxPeso) {
         this.precioxPeso = precioxPeso;

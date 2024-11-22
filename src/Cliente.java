@@ -1,7 +1,7 @@
 public class Cliente {
-    private Turno turno;
-    private Vehiculo vehiculo;
-    private Pago pago;
+    private final Turno turno;
+    private final Vehiculo vehiculo;
+    private final Pago pago;
 
     public Cliente(Turno turno, Vehiculo vehiculo, Pago pago) {
         this.turno = turno;

@@ -1,5 +1,5 @@
 public class Estado {
-    private String tipo; // Aprobado, En espera, Rechazado
+    private final String tipo; // Aprobado, En espera, Rechazado
 
     public Estado(String tipo) {
         this.tipo = tipo;

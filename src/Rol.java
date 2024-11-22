@@ -1,6 +1,6 @@
 public class Rol {
-    private String tipoRol;
-    private String funcion;
+    private final String tipoRol;
+    private final String funcion;
 
     public Rol(String tipoRol, String funcion) {
         this.tipoRol = tipoRol;

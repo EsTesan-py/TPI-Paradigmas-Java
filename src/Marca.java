@@ -1,6 +1,6 @@
 public class Marca {
-    private String nombre;
-    private Modelo modelo;
+    private final String nombre;
+    private final Modelo modelo;
 
     public Marca(String nombre, Modelo modelo) {
         this.nombre = nombre;

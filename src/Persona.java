@@ -1,11 +1,11 @@
 public class Persona {
-    private String nombre;
-    private String apellido;
-    private String dni;
-    private String nroTelefono;
-    private String correoElectronico;
-    private String fechaNacimiento;
-    private String direccion;
+    private final String nombre;
+    private final String apellido;
+    private final String dni;
+    private final String nroTelefono;
+    private final String correoElectronico;
+    private final String fechaNacimiento;
+    private final String direccion;
 
     public Persona(String nombre, String apellido, String dni, String nroTelefono, String correoElectronico, String fechaNacimiento, String direccion) {
         this.nombre = nombre;

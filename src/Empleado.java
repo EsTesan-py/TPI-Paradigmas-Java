@@ -1,6 +1,6 @@
 public class Empleado {
-    private Rol rol;
-    private String rolEmpleado;
+    private final Rol rol;
+    private final String rolEmpleado;
 
     public Empleado(Rol rol, String rolEmpleado) {
         this.rol = rol;

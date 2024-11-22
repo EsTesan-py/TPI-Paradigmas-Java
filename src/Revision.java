@@ -1,13 +1,13 @@
 public class Revision {
-    private int idRevision;
-    private String fechaAlta;
-    private String fechaVencimiento;
-    private Vehiculo vehiculo;
+    private final int idRevision;
+    private final String fechaAlta;
+    private final String fechaVencimiento;
+    private final Vehiculo vehiculo;
     private Oblea oblea;
-    private Empleado empleado;
-    private Defectos defectosVisuales;
-    private Medicion resultadoMedicion;
-    private Estado estado;
+    private final Empleado empleado;
+    private final Defectos defectosVisuales;
+    private final Medicion resultadoMedicion;
+    private final Estado estado;
 
     public Revision(int idRevision, String fechaAlta, String fechaVencimiento, Vehiculo vehiculo,
                     Oblea oblea, Empleado empleado, Defectos defectosVisuales, Medicion resultadoMedicion, Estado estado) {

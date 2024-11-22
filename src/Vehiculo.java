@@ -1,10 +1,10 @@
 public class Vehiculo {
-    private TipoVehiculo tipoVehiculo;
-    private String numeroMotor;
-    private String numeroChasis;
-    private String color;
-    private int kilometraje;
-    private Marca marca;
+    private final TipoVehiculo tipoVehiculo;
+    private final String numeroMotor;
+    private final String numeroChasis;
+    private final String color;
+    private final int kilometraje;
+    private final Marca marca;
 
     public Vehiculo(TipoVehiculo tipoVehiculo, String numeroMotor, String numeroChasis, String color, int kilometraje, Marca marca) {
         this.tipoVehiculo = tipoVehiculo;

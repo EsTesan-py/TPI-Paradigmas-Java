@@ -1,11 +1,11 @@
 public class Pago {
-    private String fecha;
-    private String hora;
-    private String condicionIva;
-    private String cuil;
-    private Revision revision;
-    private Tarifa tarifa;
-    private double monto;
+    private final String fecha;
+    private final String hora;
+    private final String condicionIva;
+    private final String cuil;
+    private final Revision revision;
+    private final Tarifa tarifa;
+    private final double monto;
 
     public Pago(String fecha, String hora, String condicionIva, String cuil, Revision revision, Tarifa tarifa) {
         this.fecha = fecha;
