@@ -1,12 +1,11 @@
-public class Persona {
+public abstract class Persona {
     private final String nombre;
     private final String apellido;
-    private String dni;
+    private final String dni;
     private final String nroTelefono;
     private final String correoElectronico;
     private final String fechaNacimiento;
     private final String direccion;
-
 
     public Persona(String nombre, String apellido, String dni, String nroTelefono, String correoElectronico, String fechaNacimiento, String direccion) {
         this.nombre = nombre;
@@ -18,19 +17,18 @@ public class Persona {
         this.direccion = direccion;
     }
 
-
     public String getNombre() {
         return nombre;
     }
-
 
     public String getApellido() {
         return apellido;
     }
 
+    public abstract void mostrar();
 
-    public void mostrar() {
-        System.out.println("Persona:");
+
+    protected void mostrarInformacionBasica() {
         System.out.println("  Nombre: " + nombre + " " + apellido);
         System.out.println("  DNI: " + dni);
         System.out.println("  Teléfono: " + nroTelefono);
@@ -39,11 +37,9 @@ public class Persona {
         System.out.println("  Dirección: " + direccion);
     }
 
+
     public Object getDni() {
         return dni;
     }
 
-    public void setDni(Object dni) {
-        this.dni = dni.toString();
-    }
 }

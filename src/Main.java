@@ -5,12 +5,13 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        // Listas para almacenar clientes y revisiones
         ArrayList<Cliente> clientes = new ArrayList<>();
         ArrayList<Revision> revisiones = new ArrayList<>();
-        Scanner scanner = new Scanner(System.in);
-        int opcion;
+        Scanner scanner = new Scanner(System.in);// Objeto Scanner para entrada de datos
+        int opcion;// Variable para controlar el menú
 
-        // Ejemplo inicial de datos
+        // Datos de ejemplo para iniciar con información predefinida
         Vehiculo vehiculoEjemplo = new Vehiculo(
                 new TipoVehiculo(222, 2, "Auto"),
                 "456",
@@ -30,7 +31,7 @@ public class Main {
                 "Calle Falsa 123",
                 new Turno(null,null),
                 vehiculoEjemplo,
-                new Pago(null,null,null,null,null,null)
+                new Pago(null,null,null,null,null,null) // Informacion de pago sin llenar
         );
         Empleado empleadoEjemplo = new Empleado(
                 "Juanfer",
@@ -60,9 +61,9 @@ public class Main {
             System.out.println("6. Asignar Oblea a una revisión");
             System.out.println("7. Cancelar y salir del menú");
             System.out.print("Seleccione una opción: ");
-            opcion = scanner.nextInt();
+            opcion = scanner.nextInt(); // Leer la opción seleccionada
             scanner.nextLine(); // Consumir el salto de línea
-
+            // Lógica para ejecutar la acción correspondiente
             switch (opcion) {
                 case 1 -> registrarDatosInspeccion(clientes, revisiones, empleadoEjemplo, scanner);
                 case 2 -> registrarClienteNuevo(clientes, scanner);
@@ -73,11 +74,11 @@ public class Main {
                 case 7 -> System.out.println("Saliendo del menú...");
                 default -> System.out.println("Opción no válida. Intente nuevamente.");
             }
-        } while (opcion != 7);
+        } while (opcion != 7); // Continuar el menú hasta que se elija la opción 7
 
-        scanner.close();
+        scanner.close(); // Cerrar el objeto Scanner
     }
-
+    // Metodo para registrar datos de inspección
     private static void registrarDatosInspeccion(ArrayList<Cliente> clientes, ArrayList<Revision> revisiones, Empleado empleado, Scanner scanner) {
         System.out.println("Ingrese el nombre del cliente:");
         String nombre = scanner.nextLine();
@@ -105,6 +106,7 @@ public class Main {
             return;
         }
 
+        // Uso de biblioteca para obtener la fecha del dia de hoy
         LocalDate fechaActual = LocalDate.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
         String fechaActualFormateada = fechaActual.format(formatter);
@@ -124,7 +126,7 @@ public class Main {
         revisiones.add(revision);
         System.out.println("Revisión registrada exitosamente: " + revision);
     }
-
+    // Metodo para regsitrar cliente nuevo
     private static void registrarClienteNuevo(ArrayList<Cliente> clientes, Scanner scanner) {
         System.out.println("Ingrese el nombre:");
         String nombre = scanner.nextLine();
@@ -146,7 +148,7 @@ public class Main {
 
         System.out.println("Cliente registrado exitosamente: " + nuevoCliente);
     }
-
+    // Metodo para registrar vehiculo nuevo
     private static void registrarVehiculoNuevo(ArrayList<Cliente> clientes, Scanner scanner) {
         System.out.println("Ingrese el DNI del cliente:");
         String dni = scanner.nextLine();
@@ -164,25 +166,55 @@ public class Main {
             return;
         }
 
-        System.out.println("Ingrese el tipo de vehículo:");
-        String tipo = scanner.nextLine();
+        String categoria = null;
+        while (categoria == null) {
+            System.out.println("Seleccione el tipo de vehículo:");
+            System.out.println("1. Automóvil");
+            System.out.println("2. Motocicleta");
+            System.out.println("3. Camioneta");
+            System.out.println("4. Camión");
+            System.out.print("Opción: ");
+            int opcion = scanner.nextInt();
+            scanner.nextLine(); // Consumir el salto de línea
+
+            switch (opcion) {
+                case 1 -> categoria = "Automóvil";
+                case 2 -> categoria = "Motocicleta";
+                case 3 -> categoria = "Camioneta";
+                case 4 -> categoria = "Camión";
+                default -> System.out.println("Opción no válida. Intente nuevamente.");
+            }
+        }
+
+        System.out.println("Ingrese el peso del vehículo (kg):");
+        double peso = scanner.nextDouble();
+        scanner.nextLine(); // Consumir el salto de línea
+
+        System.out.println("Ingrese el número de ejes:");
+        int ejes = scanner.nextInt();
+        scanner.nextLine(); // Consumir el salto de línea
+
         System.out.println("Ingrese el color:");
         String color = scanner.nextLine();
         System.out.println("Ingrese el número de motor:");
         String numeroMotor = scanner.nextLine();
         System.out.println("Ingrese la matrícula:");
         String matricula = scanner.nextLine();
+        System.out.println("Ingrese el kilometraje:");
+        int kilometraje = scanner.nextInt();
         System.out.println("Ingrese la marca:");
         String marca = scanner.nextLine();
         System.out.println("Ingrese el modelo:");
         String modelo = scanner.nextLine();
 
+        TipoVehiculo tipoVehiculo = new TipoVehiculo(peso, ejes, categoria);
+
         Vehiculo nuevoVehiculo = new Vehiculo(
-                new TipoVehiculo(0, 0, tipo),
-                color,
+                tipoVehiculo,
+                numeroMotor,
                 numeroMotor,
                 color,
-                0,
+                kilometraje,
                 new Marca(marca, new Modelo(modelo)),
                 matricula
         );
@@ -190,7 +222,7 @@ public class Main {
         cliente.setVehiculo(nuevoVehiculo);
         System.out.println("Vehículo registrado exitosamente: " + nuevoVehiculo);
     }
-
+    //Metodo para consultar revisiones teniendo en cuenta el ID adjuntado
     private static void consultarRevisionPorId(ArrayList<Revision> revisiones, Scanner scanner) {
         System.out.println("Ingrese el ID de la revisión:");
         int id = scanner.nextInt();
@@ -209,7 +241,7 @@ public class Main {
             System.out.println("Revisión encontrada: " + revisionEncontrada);
         }
     }
-
+    // Este metodo sirve para imprimir por pantalla los clientes con su respectivo vehiculo asignado
     private static void consultarClientesYVehiculos(ArrayList<Cliente> clientes) {
         System.out.println("\n--- Lista de Clientes y Vehículos ---");
         for (Cliente cliente : clientes) {
@@ -217,7 +249,7 @@ public class Main {
             System.out.println("Cliente: " + cliente.getNombre() + " " + cliente.getApellido() + " - Matrícula: " + matricula);
         }
     }
-
+    // Este metodo es usado para asignar obleas a revisiones realizadas
     private static void asignarOblea(ArrayList<Revision> revisiones, Scanner scanner) {
         System.out.println("Ingrese el ID de la revisión a la que desea asignar una oblea:");
         int id = scanner.nextInt();
@@ -259,13 +291,28 @@ public class Main {
         System.out.println("Ingrese la fecha de vencimiento de la oblea (YYYY-MM-DD):");
         String fechaDeVencimiento = scanner.nextLine();
 
-        System.out.println("Ingrese la fecha de alta de la oblea (YYYY-MM-DD):");
-        String fechaDeAlta = scanner.nextLine();
+        LocalDate fechaActual = LocalDate.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        String fechaDeAlta = fechaActual.format(formatter);
 
-        System.out.println("Ingrese el estado de la oblea:");
-        String tipoEstado = scanner.nextLine();
-        Estado estado = new Estado(tipoEstado); // Crear el estado
+        String tipoEstado = null;
+        while (tipoEstado == null) {
+            System.out.println("Seleccione el estado de la oblea:");
+            System.out.println("1. Aprobado");
+            System.out.println("2. Rechazado");
+            System.out.println("3. En espera");
+            System.out.print("Opción: ");
+            int opcionEstado = scanner.nextInt();
+            scanner.nextLine(); // Consumir el salto de línea
 
+            switch (opcionEstado) {
+                case 1 -> tipoEstado = "Aprobado";
+                case 2 -> tipoEstado = "Rechazado";
+                case 3 -> tipoEstado = "En espera";
+                default -> System.out.println("Opción no válida. Intente nuevamente.");
+            }
+        }
+        Estado estado = new Estado(tipoEstado); // Crear el estado seleccionado
         System.out.println("Ingrese el stock asociado a esta oblea:");
         int stock = scanner.nextInt();
         scanner.nextLine(); // Consumir el salto de línea

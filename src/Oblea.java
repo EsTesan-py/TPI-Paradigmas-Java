@@ -14,9 +14,6 @@ public class Oblea {
             throw new IllegalArgumentException("El número de oblea debe ser positivo.");
         }
 
-        if (!esFechaValida(fechaDeVencimiento, fechaDeAlta)) {
-            throw new IllegalArgumentException("La fecha de vencimiento debe ser posterior a la fecha de alta.");
-        }
 
         if (stock < 0) {
             throw new IllegalArgumentException("El stock no puede ser negativo.");
@@ -28,16 +25,6 @@ public class Oblea {
         this.estado = estado;
         this.stock = stock;
         this.fechaDeAlta = fechaDeAlta;
-    }
-
-    private boolean esFechaValida(String fechaDeVencimiento, String fechaDeAlta) {
-        try {
-            LocalDate vencimiento = LocalDate.parse(fechaDeVencimiento);
-            LocalDate alta = LocalDate.parse(fechaDeAlta);
-            return vencimiento.isAfter(alta);
-        } catch (DateTimeParseException e) {
-            throw new IllegalArgumentException("Las fechas deben estar en el formato 'YYYY-MM-DD'.", e);
-        }
     }
 
     public void mostrar() {

@@ -17,6 +17,7 @@ public class Cliente extends  Persona {
         System.out.println("  Turno: " + (turno != null ? turno.getFechaTurno() : "No asignado"));
         System.out.println("  Vehículo: " + (vehiculo != null ? vehiculo.getTipoVehiculo() : "No asignado"));
         System.out.println("  Pago: " + (pago != null ? "$" + pago.calcularMonto() : "No realizado"));
+        mostrarInformacionBasica();
     }
 
 

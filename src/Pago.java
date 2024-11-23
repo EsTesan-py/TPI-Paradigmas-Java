@@ -7,7 +7,6 @@ public class Pago {
     private final Tarifa tarifa;
     private final double monto;
 
-
     public Pago(String fecha, String hora, String condicionIva, String cuil, Revision revision, Tarifa tarifa) {
         this.fecha = fecha;
         this.hora = hora;
@@ -18,16 +17,13 @@ public class Pago {
         this.monto = calcularMonto();
     }
 
-
     public double calcularMonto() {
         return tarifa != null ? tarifa.getPrecio() : 0;
     }
 
-
     public Tarifa conocerTarifa() {
         return tarifa;
     }
-
 
     public void mostrar() {
         System.out.println("Pago:");
