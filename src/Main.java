@@ -191,7 +191,7 @@ public class Main {
 
         Revision revisionEncontrada = null;
         for (Revision revision : revisiones) {
-            if (revision.getIdRevision() == id-1) {
+            if (revision.getIdRevision() == id) {
                 revisionEncontrada = revision;
                 break;
             }
