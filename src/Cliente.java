@@ -1,7 +1,7 @@
 public class Cliente extends  Persona {
-    private Turno turno;
+    private final Turno turno;
     private Vehiculo vehiculo;
-    private Pago pago;
+    private final Pago pago;
 
 
     public Cliente(String nombre, String apellido, String dni, String nroTelefono, String correoElectronico, String fechaNacimiento, String direccion, Turno turno, Vehiculo vehiculo, Pago pago) {
@@ -9,12 +9,6 @@ public class Cliente extends  Persona {
         this.turno = turno;
         this.vehiculo = vehiculo;
         this.pago = pago;
-    }
-
-
-    public Cliente(String nombre, String apellido, String dni, String nroTelefono, String correoElectronico, String fechaNacimiento, String direccion, Vehiculo vehiculo) {
-        super(nombre, apellido, dni, nroTelefono, correoElectronico, fechaNacimiento, direccion);
-        this.vehiculo = vehiculo;
     }
 
 

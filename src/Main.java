@@ -13,7 +13,7 @@ public class Main {
         // Ejemplo inicial de datos
         Vehiculo vehiculoEjemplo = new Vehiculo(
                 new TipoVehiculo(222, 2, "Auto"),
-                "Azul",
+                "456",
                 "123",
                 "Azul",
                 120,
@@ -28,7 +28,9 @@ public class Main {
                 "juan.perez@email.com",
                 "1990-05-20",
                 "Calle Falsa 123",
-                vehiculoEjemplo
+                new Turno(null,null),
+                vehiculoEjemplo,
+                new Pago(null,null,null,null,null,null)
         );
         Empleado empleadoEjemplo = new Empleado(
                 "Juanfer",
@@ -139,7 +141,7 @@ public class Main {
         System.out.println("Ingrese la dirección:");
         String direccion = scanner.nextLine();
 
-        Cliente nuevoCliente = new Cliente(nombre, apellido, dni, telefono, correo, fechaNacimiento, direccion, null);
+        Cliente nuevoCliente = new Cliente(nombre, apellido, dni, telefono, correo, fechaNacimiento, direccion, null,null,null);
         clientes.add(nuevoCliente);
 
         System.out.println("Cliente registrado exitosamente: " + nuevoCliente);
