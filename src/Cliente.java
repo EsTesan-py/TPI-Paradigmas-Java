@@ -34,4 +34,12 @@ public class Cliente extends  Persona {
     public Vehiculo conocerVehiculo() {
         return vehiculo;
     }
+
+    public void setVehiculo(Vehiculo vehiculo) {
+        this.vehiculo = vehiculo;
+    }
+
+    public Vehiculo getVehiculo() {
+        return vehiculo;
+    }
 }

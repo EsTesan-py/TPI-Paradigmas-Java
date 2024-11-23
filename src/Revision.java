@@ -92,4 +92,8 @@ public class Revision {
                 ", estado=" + estado +
                 '}';
     }
+
+    public int getIdRevision() {
+        return 0;
+    }
 }

@@ -1,7 +1,7 @@
 public class Persona {
     private final String nombre;
     private final String apellido;
-    private final String dni;
+    private String dni;
     private final String nroTelefono;
     private final String correoElectronico;
     private final String fechaNacimiento;
@@ -37,5 +37,13 @@ public class Persona {
         System.out.println("  Correo Electrónico: " + correoElectronico);
         System.out.println("  Fecha de Nacimiento: " + fechaNacimiento);
         System.out.println("  Dirección: " + direccion);
+    }
+
+    public Object getDni() {
+        return dni;
+    }
+
+    public void setDni(Object dni) {
+        this.dni = dni.toString();
     }
 }
