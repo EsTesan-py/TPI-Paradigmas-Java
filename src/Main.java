@@ -41,7 +41,7 @@ public class Main {
                 new Rol("Encargado de Cobro", "Registrar datos para inspección")
         );
         // Revisión de ejemplo
-        Revision revision1 = new Revision(1, "25-11-2023", "27-12-2024", vehiculoEjemplo, empleadoEjemplo, new Estado("Aprobado"));
+        Revision revision1 = new Revision(1, "25-11-2023", "27-12-2024", vehiculoEjemplo, empleadoEjemplo,new Defectos("Aboyadura","Hundimiento en parte frontal"),new Medicion("Porcentaje desperfecto",78), new Estado("Aprobado"));
 
         // Agregar datos iniciales a listas
         clientes.add(clienteEjemplo);
@@ -55,7 +55,8 @@ public class Main {
             System.out.println("3. Registrar vehículo nuevo");
             System.out.println("4. Consultar revisión mediante ID");
             System.out.println("5. Consultar clientes y vehículos");
-            System.out.println("6. Cancelar y salir del menú");
+            System.out.println("6. Asignar Oblea a una revisión");
+            System.out.println("7. Cancelar y salir del menú");
             System.out.print("Seleccione una opción: ");
             opcion = scanner.nextInt();
             scanner.nextLine(); // Consumir el salto de línea
@@ -66,10 +67,11 @@ public class Main {
                 case 3 -> registrarVehiculoNuevo(clientes, scanner);
                 case 4 -> consultarRevisionPorId(revisiones, scanner);
                 case 5 -> consultarClientesYVehiculos(clientes);
-                case 6 -> System.out.println("Saliendo del menú...");
+                case 6 -> asignarOblea(revisiones, scanner);
+                case 7 -> System.out.println("Saliendo del menú...");
                 default -> System.out.println("Opción no válida. Intente nuevamente.");
             }
-        } while (opcion != 6);
+        } while (opcion != 7);
 
         scanner.close();
     }
@@ -112,6 +114,8 @@ public class Main {
                 fechaVencimiento,
                 usuario.conocerVehiculo(),
                 empleado,
+                new Defectos("Aboyadura","Hundimiento en parte frontal"),
+                new Medicion("Porcentaje desperfecto",78),
                 new Estado("Pendiente")
         );
 
@@ -211,4 +215,67 @@ public class Main {
             System.out.println("Cliente: " + cliente.getNombre() + " " + cliente.getApellido() + " - Matrícula: " + matricula);
         }
     }
+
+    private static void asignarOblea(ArrayList<Revision> revisiones, Scanner scanner) {
+        System.out.println("Ingrese el ID de la revisión a la que desea asignar una oblea:");
+        int id = scanner.nextInt();
+        scanner.nextLine(); // Consumir el salto de línea
+
+        // Buscar la revisión en la lista
+        Revision revisionEncontrada = null;
+        for (Revision revision : revisiones) {
+            if (revision.getIdRevision() == id) {
+                revisionEncontrada = revision;
+                break;
+            }
+        }
+
+        // Verificar si la revisión fue encontrada
+        if (revisionEncontrada == null) {
+            System.out.println("Revisión no encontrada.");
+            return;
+        }
+
+        // Verificar si ya tiene una oblea asignada
+        if (revisionEncontrada.conocerOblea() != null) {
+            System.out.println("Esta revisión ya tiene una oblea asignada.");
+            revisionEncontrada.conocerOblea().mostrar(); // Mostrar la oblea existente
+            return;
+        }
+
+        // Solicitar los datos necesarios para crear la nueva oblea
+        System.out.println("Ingrese el número de oblea:");
+        int nroDeOblea = scanner.nextInt();
+        scanner.nextLine(); // Consumir el salto de línea
+
+        // Validar que el número de oblea sea positivo
+        if (nroDeOblea <= 0) {
+            System.out.println("Error: El número de oblea debe ser un valor positivo. Intente nuevamente.");
+            return;
+        }
+
+        System.out.println("Ingrese la fecha de vencimiento de la oblea (YYYY-MM-DD):");
+        String fechaDeVencimiento = scanner.nextLine();
+
+        System.out.println("Ingrese la fecha de alta de la oblea (YYYY-MM-DD):");
+        String fechaDeAlta = scanner.nextLine();
+
+        System.out.println("Ingrese el estado de la oblea:");
+        String tipoEstado = scanner.nextLine();
+        Estado estado = new Estado(tipoEstado); // Crear el estado
+
+        System.out.println("Ingrese el stock asociado a esta oblea:");
+        int stock = scanner.nextInt();
+        scanner.nextLine(); // Consumir el salto de línea
+
+        // Crear la nueva oblea
+        Oblea nuevaOblea = new Oblea(nroDeOblea, fechaDeVencimiento, revisionEncontrada.conocerVehiculo(), estado, stock, fechaDeAlta);
+
+        // Asignar la oblea a la revisión
+        revisionEncontrada.asignarOblea(nuevaOblea);
+
+        System.out.println("Oblea asignada exitosamente:");
+        nuevaOblea.mostrar();
+    }
+
 }

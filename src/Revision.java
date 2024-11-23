@@ -43,7 +43,7 @@ public class Revision {
         System.out.println("Revisión #" + idRevision);
         System.out.println("Fecha de Alta: " + fechaAlta);
         System.out.println("Fecha de Vencimiento: " + fechaVencimiento);
-        System.out.println("Estado: " + estado.getNombreEstado());
+        System.out.println("Estado: " + estado);
         System.out.println("Vehículo: " + vehiculo);
         System.out.println("Oblea: " + (oblea != null ? oblea : "Sin oblea asignada"));
     }
@@ -104,4 +104,5 @@ public class Revision {
     public int getIdRevision() {
         return idRevision;
     }
+
 }
