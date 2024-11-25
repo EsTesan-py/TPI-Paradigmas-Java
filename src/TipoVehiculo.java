@@ -19,4 +19,10 @@ public class TipoVehiculo {
         System.out.println("  Ejes: " + eje);
         System.out.println("  Categoría: " + categoria);
     }
+    @Override
+    public String toString(){
+        return "Peso: "+peso +
+                " Ejes "+eje +
+                " Categoria: "+categoria;
+    }
 }

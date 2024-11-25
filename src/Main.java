@@ -146,7 +146,7 @@ public class Main {
         Cliente nuevoCliente = new Cliente(nombre, apellido, dni, telefono, correo, fechaNacimiento, direccion, null,null,null);
         clientes.add(nuevoCliente);
 
-        System.out.println("Cliente registrado exitosamente: " + nuevoCliente);
+        System.out.println("Cliente registrado exitosamente: " + nuevoCliente + "\n Nombre: "+nombre+"\n Apellido: "+apellido+"\n DNI: "+dni);
     }
     // Metodo para registrar vehiculo nuevo
     private static void registrarVehiculoNuevo(ArrayList<Cliente> clientes, Scanner scanner) {
@@ -202,13 +202,13 @@ public class Main {
         String matricula = scanner.nextLine();
         System.out.println("Ingrese el kilometraje:");
         int kilometraje = scanner.nextInt();
+        scanner.nextLine();
         System.out.println("Ingrese la marca:");
         String marca = scanner.nextLine();
         System.out.println("Ingrese el modelo:");
         String modelo = scanner.nextLine();
 
         TipoVehiculo tipoVehiculo = new TipoVehiculo(peso, ejes, categoria);
-
         Vehiculo nuevoVehiculo = new Vehiculo(
                 tipoVehiculo,
                 numeroMotor,

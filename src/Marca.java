@@ -17,4 +17,11 @@ public class Marca {
             modelo.mostrar();
         }
     }
+    @Override
+    public String toString() {
+        return "Marca{" +
+                "nombre=" + nombre +
+                ", modelo='" + modelo + '\'' +
+                '}';
+    }
 }

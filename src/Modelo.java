@@ -8,4 +8,11 @@ public class Modelo {
     public void mostrar() {
         System.out.println("  Modelo: " + nombre);
     }
+
+    @Override
+    public String toString(){
+        return "Modelo{"+
+                "nombre="+nombre+"\""+
+                "}";
+    }
 }

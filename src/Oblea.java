@@ -32,7 +32,7 @@ public class Oblea {
         System.out.println("  Número de Oblea: " + nroDeOblea);
         System.out.println("  Fecha de Alta: " + fechaDeAlta);
         System.out.println("  Fecha de Vencimiento: " + fechaDeVencimiento);
-        System.out.println("  Vehículo Asociado: " + (vehiculo != null ? vehiculo.getTipoVehiculo() : "No asignado"));
+        System.out.println("  Matricula de Vehículo Asociado: " + getVehiculo().getMatricula());
         System.out.println("  Estado: " + (estado != null ? estado.getTipo() : "No asignado"));
         System.out.println("  Stock: " + stock);
     }
