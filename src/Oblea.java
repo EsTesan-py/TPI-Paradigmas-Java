@@ -13,7 +13,7 @@ public class Oblea {
         if (nroDeOblea <= 0) {
             throw new IllegalArgumentException("El número de oblea debe ser positivo.");
         }
-
+  
 
         if (stock < 0) {
             throw new IllegalArgumentException("El stock no puede ser negativo.");
